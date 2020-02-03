@@ -24,6 +24,16 @@ int* randomGenerator(int n, int ll, int ul)
     }
     return a;
 }
+int timed(int* (*p) (int a,int b,int c))
+{
+    clock_t start, end;
+    double timeTaken;
+    start = clock();
+    int *x = (*p)(a,b,c);
+    end = clock();
+    timeTaken = ((double)end - start) / CLOCKS_PER_SEC;
+    return timeTaken;
+}
 
 int main()
 {
@@ -42,12 +52,17 @@ int main()
     
     
     // The Rando Generator!
-    start=clock();
-    int *b=randomGenerator(10,0,10);
-    end=clock();
-    timeTaken=((double)end-start)/CLOCKS_PER_SEC;
-    for(int i=0;i<10;i++)
-        printf("%d ",b[i]);
-    printf("\n");
-    printf("The function took %f seconds to execute \n", timeTaken);
+    // start=clock();
+    // int *b=randomGenerator(10,0,10);
+    // end=clock();
+    // timeTaken=((double)end-start)/CLOCKS_PER_SEC;
+    // for(int i=0;i<10;i++)
+    //     printf("%d ",b[i]);
+    // printf("\n");
+    // printf("The function took %f seconds to execute \n", timeTaken);
+
+
+
+    // int* (*ptr)(int,int,int)=&randomGenerator;
+    timeTaken = timed(randomGenerator(10,0,10));
 }
