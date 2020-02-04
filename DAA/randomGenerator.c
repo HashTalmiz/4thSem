@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 
-int* randomGenerator(int n, int ll, int ul)
+int* randomGenerator(int n, int ll, int ul) //Generates random but unique elements
 {
     int i,j,flag;
     int *a=(int*)calloc(n,sizeof(int));
@@ -24,21 +24,22 @@ int* randomGenerator(int n, int ll, int ul)
     }
     return a;
 }
-int timed(int* (*p) (int a,int b,int c))
-{
-    clock_t start, end;
-    double timeTaken;
-    start = clock();
-    int *x = (*p)(a,b,c);
-    end = clock();
-    timeTaken = ((double)end - start) / CLOCKS_PER_SEC;
-    return timeTaken;
-}
+// double timed(int* (*p) (int,int,int))
+// {
+//     clock_t start, end;
+//     double timeTaken;
+//     start = clock();
+//     int *x = (*p)(10,0,10);
+//     end = clock();
+//     timeTaken = ((double)end - start) / CLOCKS_PER_SEC;
+//     return timeTaken;
+// }
 
 int main()
 {
     clock_t start,end;
     double timeTaken;
+    int n;
 
     // Initialize Random
     srand(time(NULL));
@@ -48,21 +49,22 @@ int main()
     // int x = 10;
     // int y = 20;
     // int r = rand() % (y-x+1) + x;
-    // printf("The Random Number: %d\n",r);
     
-    
-    // The Rando Generator!
-    // start=clock();
-    // int *b=randomGenerator(10,0,10);
-    // end=clock();
-    // timeTaken=((double)end-start)/CLOCKS_PER_SEC;
-    // for(int i=0;i<10;i++)
-    //     printf("%d ",b[i]);
-    // printf("\n");
-    // printf("The function took %f seconds to execute \n", timeTaken);
+    printf("Enter the number of elements to be generated randomly:");
+    scanf("%d",&n);
+    // The Rando Generator
+
+    start=clock();
+    int *b=randomGenerator(n,1,n);
+    end=clock();
+    timeTaken=((double)end-start)/CLOCKS_PER_SEC;
+    for(int i=0;i<10;i++)
+        printf("%d ",b[i]);
+    printf("\n");
+    printf("The function took %f seconds to execute \n", timeTaken);
 
 
 
     // int* (*ptr)(int,int,int)=&randomGenerator;
-    timeTaken = timed(randomGenerator(10,0,10));
+    // timeTaken = timed(randomGenerator);
 }
