@@ -15,8 +15,9 @@ And for quick plotting
 
 void printArray(int a[],int n)
 {
+    int i;
     printf("Sorted Array:\t");
-    for (int i = 0; i < n; i++)
+    for(i = 0; i < n; i++)
         printf("%d\t", a[i]);
     printf("\n");
 }
@@ -84,11 +85,15 @@ int* bubbleSort(int a[], int n)
 	}
     return a;
 }
-double timed(int* (*p)(int[], int),int n)
+double timed(int* (*p)(int[], int))
 {
     clock_t start, end;
     double timeTaken;
-    
+    int n;
+
+    printf("Enter the number of elements:");
+    scanf("%d",&n);
+    printf("Please Wait...\n");
 
     int *a=(int*)calloc(n,sizeof(int));
     a=randomGenerator(n,1,n); //Randomly generate an array with distinct elements
@@ -99,43 +104,23 @@ double timed(int* (*p)(int[], int),int n)
 
     timeTaken = ((double)end - start) / CLOCKS_PER_SEC;
     
-    // printArray(x,n); //Comment this line out if you dont want to print out the sorted elements
+    printArray(x,n); //Comment this line out if you dont want to print out the sorted elements
     return timeTaken;
 }
-int main()
+void main()
 {
-    int algoCh,inputCh,n;
-        int input[] = {5, 10, 100, 1000, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000};
+    int ch;
     printf("TIME ANALYSIS\nChoose your Algorithm:\n1.Bubble Sort\n2.Selection Sort\n");
-    scanf("%d",&algoCh);
-    printf("Choose:\n1.Default Input Set\n2.Custom Input\n");
-    scanf("%d",&inputCh);
-    switch(inputCh)
+    scanf("%d",&ch);
+    switch (ch)
     {
         case 1:
-            n = sizeof(input) / sizeof(input[0]);
-            for(int i=0;i<n;i++)
-                printf("\nFor %d inputs, Bubble Sort took %f seconds\n", input[i], timed(bubbleSort,input[i]));
+            printf("The Bubble sort took %f seconds to execute \n", timed(bubbleSort));
             break;
         case 2:
-            switch (algoCh)
-            {
-            case 1:
-                printf("Enter the number of elements:");
-                scanf("%d", &n);
-                printf("Please Wait...\n");
-                printf("The Bubble sort took %f seconds to execute \n", timed(bubbleSort, n));
-                break;
-            case 2:
-                printf("Enter the number of elements:");
-                scanf("%d", &n);
-                printf("Please Wait...\n");
-                printf("The Selection Sort took %f seconds to execute \n", timed(selectionSort, n));
-                break;
-            default:
-                printf("Incorrect Choice\n");
-                break;
-            }
+            printf("The Selection Sort took %f seconds to execute \n", timed(selectionSort));
+            break;
+        default: printf("Incorrect Choice\n");
             break;
     }
 }
