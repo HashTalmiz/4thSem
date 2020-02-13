@@ -1,0 +1,18 @@
+		area ap,code,readonly
+entry
+			mov r2,#10
+			mov r1,#10
+			mov r0,#3
+			ldr r1,=VALUES
+			str r0,[r1]
+			sub r2,r2,#1
+repeat	add r0,r0,#7
+			str r0,[r1,#4]!
+			subs r2,r2,#1
+			bne repeat
+go		b go
+		area mydata,data,readwrite
+VALUES space 10
+		end
+			
+			;Works with 0 errors
