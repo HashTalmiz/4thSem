@@ -1,0 +1,18 @@
+		area subCubes,code,readonly
+N				RN		1 
+NPLUS		RN		2
+TEMP		RN		3
+RESULT	RN		4
+entry
+				mov N,#3
+				add NPLUS,N,#1
+				mul TEMP,N,NPLUS
+				lsr TEMP,TEMP,#1
+				mul RESULT,TEMP,TEMP
+				ldr R0,=0x40000000
+				str RESULT,[R0]
+				ldr r5,[r0]
+stop			b stop
+		end
+			
+			;Works with 0 errors

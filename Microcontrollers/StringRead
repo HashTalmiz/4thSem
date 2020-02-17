@@ -1,0 +1,14 @@
+			area stringread,code,readonly
+entry
+			ldr r0,=dststr
+			adr r1,srcstr
+repeat	ldrb r2,[r1],#1
+			strb r2,[r0],#1
+			cmp r2,#0
+			bne repeat
+go		b go
+srcstr dcb "This is the source string",0
+			area dststr1,data
+dststr space 30
+			end
+				;0 errors
