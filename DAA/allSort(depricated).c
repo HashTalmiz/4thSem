@@ -1,7 +1,7 @@
 /* NOTE: This program is amazing in its clean OUTPUT but it is quite long and 
 therefore it is not reccomended to be written in the Lab manual, nor to be "learnt" for exams.
 Things like callbacks and array returns are beyond the scope of DAA.
-But I made it for fun :P 
+this was made for fun lol
 And for quick plotting
 */
 // void clrscr()
