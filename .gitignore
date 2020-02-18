@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+#ALL NON C FILES
+
+# exclude everything
+DAA/*
+# Exception to the rule {Regex i made ^(?!.*\.c).*$}
+!DAA/*.c
