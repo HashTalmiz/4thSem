@@ -2,6 +2,13 @@
 #include<stdlib.h>
 #include<time.h>
 
+void printArray(int A[], int size)
+{
+    int i;
+    for (i = 0; i < size; i++)
+        printf("%d ", A[i]);
+    printf("\n");
+}
 void swap(int* a, int* b) 
 { 
     int t = *a; 
@@ -42,7 +49,8 @@ void quickSort(int arr[], int low, int high)
         // Separately sort elements before 
         // partition and after partition 
         quickSort(arr, low, pi - 1); 
-        quickSort(arr, pi + 1, high); 
+        quickSort(arr, pi + 1, high);
+        printArray(arr,high+1); 
     } 
 } 
 

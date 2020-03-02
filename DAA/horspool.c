@@ -1,4 +1,4 @@
-//Ihnore gets warning, will work fine
+//Ignore the 'gets' warning, it'll work fine
 #include<stdio.h>
 #include<string.h>
 #define MAX 500

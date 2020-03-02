@@ -70,6 +70,7 @@ void mergeSort(int arr[], int l, int r)
         mergeSort(arr, m+1, r); 
   
         merge(arr, l, m, r); 
+        // printArray(arr,r+1);
     } 
 } 
   
@@ -115,7 +116,7 @@ void main()
                 int *a = (int *)calloc(n, sizeof(int));
             for(j=0;j<n;j++)
                 {
-                    a[j]=rand();
+                    a[j]=input[i]-j;
                 }
             t=clock();
             mergeSort(a,0,n-1);
