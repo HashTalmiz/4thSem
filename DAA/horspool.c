@@ -24,7 +24,7 @@ int horspool(char src[],char p[])
     {
         k=0;
         while((k<m)&&(p[m-1-k]==src[i-k]))
-        k++;
+            k++;
         if(k==m)
             return(i-m+1);
         else
